@@ -1,0 +1,102 @@
+function CheckLogin(){
+    //document.cookie = "sessioncook= ; path=/; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    var x= getCookie("AutoLog")=== 'undefined'?"":getCookie("AutoLog");  
+    var y= getCookie("sessioncook")=== 'undefined'?"":getCookie("sessioncook");  
+    console.log(y);
+    console.log(x);
+    if(x==""&&y==""){
+        window.location.href = "script/AccountManager.php";
+    }
+    //document.cookie = "sessioncook= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+
+}
+function Login(email, password){
+    var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("checkauth").innerHTML=this.responseText== "true"? "<img class='img-responsive h-auto fixed-center' style='margin: 0 auto;'  src='img/loading.gif' >": this.responseText;
+      document.getElementById("checkauth").value= this.responseText;
+ }
+  }
+  console.log(this.responseText);
+  xmlhttp.addEventListener("loadend", CheckResult, false);
+  var check= document.getElementById("check").checked? "true": "false";
+  xmlhttp.open("GET","script/Login.php?email="+email+"&password="+password+"&check="+check,true);
+  xmlhttp.send();
+}
+function CheckResult(){
+    if(document.getElementById("checkauth").value=="true"){
+        window.location.href = "http://localhost/Elaborato";
+      }
+}
+function GetProfileInfo(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("profile").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/RecoverProfileInfo.php",true);
+  xmlhttp.send();
+}
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function SendLogOut(){
+  console.log(getCookie("sessioncookie"));
+  document.cookie = "AutoLog= ; path=/; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+  document.cookie = "sessioncook= ; path=/; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+  console.log(getCookie("sessioncookie"));
+  window.location.href = "http://localhost/Elaborato/Login.html";
+  console.log(getCookie("sessioncookie"));
+}
+function CheckPasswordOnSign(){
+  var fpass= document.getElementById("fpassword").value;
+  var spass= document.getElementById("spassword").value;
+  if(fpass==spass){
+    document.getElementById("submit").setAttribute("onclick", "CreateOperaio()");
+    document.getElementById("notcorrect").innerHTML= "Ottimo!"
+  }
+  else{
+    document.getElementById("notcorrect").innerHTML= "Le password non corrispondono";
+    document.getElementById("submit").setAttribute("onclick", "");
+  }
+}
+function CreateOperaio(){
+  var xmlhttp=new XMLHttpRequest();
+  var allid = new Array("nome","cognome","nascita","luogo","email","CF","fpassword","SelectCantiere","SelectUtente");
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("notcorrect").innerHTML=this.responseText;
+ }
+  }
+  var url="script/CreateOp.php";
+ for(var s=0;s<allid.length;s++){
+  var sign= s==0?"?":"&";
+  url= url+sign+allid[s]+"="+document.getElementById(allid[s]).value;
+}
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send();
+}
+function GetCantiere(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("SelectCantiere").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/GetCantiere.php",true);
+  xmlhttp.send();
+}

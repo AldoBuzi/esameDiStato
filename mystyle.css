@@ -1,0 +1,32 @@
+#container {
+    overflow-x:hidden;
+    width:100%;
+  }
+[id*="toresize"] {
+    width: 300px;
+    padding-top:200px ;
+  }
+  [id*="moresm"] {
+    width: 100%;
+  }
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    #toresize {
+        width: 75%;
+        padding-top:150px ;
+    }
+    #moresm {
+      width: 40%;
+   }
+  }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+   #toresize {
+       width: 40px;
+       padding-top:100px ;
+    }
+    #moresm {
+      width: 50%;
+   }
+   
+  }
