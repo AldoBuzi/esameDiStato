@@ -9,8 +9,8 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid ">
-              <a class="navbar-brand" href="#">Cantiere Buzi Donaldo</a>
+            <div id="container" class="container-fluid ">
+              <a class="navbar-brand" href="index.html">Cantiere Buzi Donaldo</a>
               <div  id="profile" class="btn-group dropstart">
                 
               </div>
@@ -29,45 +29,48 @@
               </div>
               <hr>
               <div class="row">
-              <div class="col-3 d-flex justify-content-start mt-4 px-0">
+              <div class="col-12 col-md-3  justify-content-start mt-4 px-0">
                 <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button class="nav-link  btn-lg" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">Home</button>
-                  <button class="nav-link btn-lg" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
-                  <button class="nav-link btn-lg" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
-                  <button class="nav-link btn-lg" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+                  <button class="nav-link  btn-lg" id="home-tab" onclick="ProfileMobileManager(0);" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">Home</button>
+                  <button class="nav-link btn-lg" id="profile-tab" onclick="ProfileMobileManager(0);" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+                  <button class="nav-link btn-lg" id="messages-tab" onclick="ProfileMobileManager(0);" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+                  <button class="nav-link btn-lg" id="settings-tab" onclick="ProfileMobileManager(0);" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
                 </div>
               </div>
-              <div id="items-table" class="col-9 d-flex justify-content-center mt-5 px-0" >
+              <div id="goback" class="col-12 col-md-3  justify-content-end mt-4 px-0" style="visibility: hidden; max-width: 0; max-height: 0;">
+              <button type="button" onclick="ProfileMobileManager(1);" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Indietro</button>
+            </div>
+              <div id="items-table" class="col-12 col-md-9 d-flex justify-content-center mt-5 px-0" >
                 <div class="tab-content" id="v-pills-tabContent">
                   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                    <div class="row">
+                    <div class="row text-center">
                     <div class="col-12 col-md-4 mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ciao" readonly>
+                        <input type="email" class="form-control text-center" id="exampleFormControlInput1" placeholder="Ciao" readonly>
                       </div>
                       <div class="col-12 col-md-4 mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Cognome</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Prova" readonly>
+                        <input type="email" class="form-control text-center" id="exampleFormControlInput1" placeholder="Prova" readonly>
                       </div>
                       <div class="col-12 col-md-4 mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Tipo Utente</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Capo" readonly>
+                        <input type="email" class="form-control text-center" id="exampleFormControlInput1" placeholder="Capo" readonly>
                       </div>
                       <div class="col-12 col-md-6 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">indirizzo email</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">aldo@gmail.com</textarea>
+                        <textarea class="form-control text-center" id="exampleFormControlTextarea1" rows="1">aldo@gmail.com</textarea>
                       </div>
                       <div class="col-12 col-md-6 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Codice Fiscale</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">BZUFUBSFNSF</textarea>
+                        <textarea class="form-control text-center" id="exampleFormControlTextarea1" rows="1">BZUFUBSFNSF</textarea>
                       </div>
                       <div class="col-12 col-md-6 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Luogo di nascita</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">Italia</textarea>
+                        <textarea class="form-control text-center" id="exampleFormControlTextarea1" rows="1">Italia</textarea>
                       </div>
                       <div class="col-12 col-md-6 mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Data di nascita</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">02/02/2002</textarea>
+                        <textarea class="form-control text-center" id="exampleFormControlTextarea1" rows="1">02/02/2002</textarea>
                       </div>
                     </div>
                   </div>

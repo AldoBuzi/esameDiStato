@@ -100,3 +100,18 @@ function GetCantiere(){
   xmlhttp.open("GET","script/GetCantiere.php",true);
   xmlhttp.send();
 }
+function ProfileMobileManager(index){
+    var Keys= new Array("pills-home","pills-profile","pills-messages","pills-settings");
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if(width<560&&index==0){
+      document.getElementById("items-table").style="visibility: visible; max-height: 100%; max-width: 100%;";
+      document.getElementById("v-pills-tab").style="visibility: hidden; max-height: 0; max-width: 0;";
+      document.getElementById("goback").style="visibility: visible; max-height: 100%; max-width: 100%;";
+
+    }
+    else if(index==1){
+      document.getElementById("items-table").style="visibility: hidden; max-height: 0; max-width: 0;";
+      document.getElementById("v-pills-tab").style="visibility: visible; max-height: 100%; max-width: 100%;";
+      document.getElementById("goback").style="visibility: hidden; max-height: 0; max-width: 0;";
+    }
+}

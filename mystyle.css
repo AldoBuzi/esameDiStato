@@ -2,6 +2,10 @@
     overflow-x:hidden;
     width:100%;
   }
+  #container-profile {
+    overflow-x:hidden;
+    width:100%;
+  }
 [id*="toresize"] {
     width: 300px;
     padding-top:200px ;
@@ -14,6 +18,8 @@
   }
   [id*="items-table"] {
     visibility: hidden;
+    max-height: 0;
+    max-width: 0;
     }
   @media only screen and (min-width: 720px) {
     /* For tablets: */
@@ -29,6 +35,8 @@
   }
   #items-table{
     visibility: visible;
+    max-height: 100%;
+    max-width: 100%;
   }
   }
   @media only screen and (min-width: 1030px) {
@@ -45,5 +53,7 @@
    }
    #items-table{
     visibility: visible;
+    max-height: 100%;
+    max-width: 100%;
   }
   }
