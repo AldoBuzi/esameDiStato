@@ -9,47 +9,73 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
+            <div class="container-fluid ">
               <a class="navbar-brand" href="#">Cantiere Buzi Donaldo</a>
               <div  id="profile" class="btn-group dropstart">
                 
               </div>
             </div>
           </nav>
-          <div class="container mt-3">
-          <div class="card mb-3 mx-1 shadow " style="max-width: 1040px;">
-            <div class="row g-0 justify-content-center mx-2 my-2">
-              <div class="col-4 col-md-4">
+          <div id="container-profile" class="container-fluid">
+          <div class="card mb-3 mx-1 d-flex  shadow ">
+            <div class="row g-0 justify-content-center mx-3 my-3">
+              <div class="col-4 col-md-4 mb-5">
                 <img id="moresm" src="img/user.png" alt="">
               </div>
-              <div class="col-8 col-md-8">
+              <div class="col-8 col-md-8 mb-5">
                 <div class="card-body">
-                  <h1 class="card-title">Buzi Donaldo</h1>
+                  <h1 class="card-title ">Buzi Donaldo</h1>
                 </div>
               </div>
               <hr>
-              <div class="d-flex align-items-start mt-5">
+              <div class="row">
+              <div class="col-3 d-flex justify-content-start mt-4 px-0">
                 <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button class="nav-link active btn-lg" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                  <button class="nav-link  btn-lg" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">Home</button>
                   <button class="nav-link btn-lg" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
                   <button class="nav-link btn-lg" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
                   <button class="nav-link btn-lg" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
                 </div>
-                <div class="tab-content col align-self-center" id="v-pills-tabContent">
+              </div>
+              <div id="items-table" class="col-9 d-flex justify-content-center mt-5 px-0" >
+                <div class="tab-content" id="v-pills-tabContent">
                   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                    <div class="col align-self-center mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    <div class="row">
+                    <div class="col-12 col-md-4 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ciao" readonly>
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <div class="col-12 col-md-4 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Cognome</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Prova" readonly>
                       </div>
+                      <div class="col-12 col-md-4 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Tipo Utente</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Capo" readonly>
+                      </div>
+                      <div class="col-12 col-md-6 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">indirizzo email</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">aldo@gmail.com</textarea>
+                      </div>
+                      <div class="col-12 col-md-6 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Codice Fiscale</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">BZUFUBSFNSF</textarea>
+                      </div>
+                      <div class="col-12 col-md-6 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Luogo di nascita</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">Italia</textarea>
+                      </div>
+                      <div class="col-12 col-md-6 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Data di nascita</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">02/02/2002</textarea>
+                      </div>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">test</div>
                   <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
                   <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -57,7 +83,7 @@
         <footer class="fixed-bottom  bg-light text-center text-lg-start">
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgb(226, 226, 226);">
-              © 2020 Copyright:
+              © 2021 Copyright:
               <a class="text-dark" href="https://mdbootstrap.com/">esamebuzi.com</a>
             </div>
             <!-- Copyright -->

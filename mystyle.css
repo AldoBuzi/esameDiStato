@@ -9,7 +9,13 @@
   [id*="moresm"] {
     width: 100%;
   }
-  @media only screen and (min-width: 600px) {
+  [id*="container-profile"] {
+    width: 100%;
+  }
+  [id*="items-table"] {
+    visibility: hidden;
+    }
+  @media only screen and (min-width: 720px) {
     /* For tablets: */
     #toresize {
         width: 75%;
@@ -18,15 +24,26 @@
     #moresm {
       width: 40%;
    }
+   #container-profile{
+    width: 100%;
   }
-  @media only screen and (min-width: 768px) {
+  #items-table{
+    visibility: visible;
+  }
+  }
+  @media only screen and (min-width: 1030px) {
     /* For desktop: */
    #toresize {
-       width: 40px;
+       width: 450px;
        padding-top:100px ;
     }
     #moresm {
       width: 50%;
    }
-   
+   #container-profile{
+     width: 50%;
+   }
+   #items-table{
+    visibility: visible;
+  }
   }
