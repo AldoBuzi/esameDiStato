@@ -115,3 +115,14 @@ function ProfileMobileManager(index){
       document.getElementById("goback").style="visibility: hidden; max-height: 0; max-width: 0;";
     }
 }
+function GetWorkerHrs(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("ResultTable").innerHTML=this.responseText;
+ }
+  }
+  document.getElementById("ResultDiv").style= "display: block;";
+  xmlhttp.open("GET","script/GetWorkerHrs.php?month="+document.getElementById("Month").value,true);
+  xmlhttp.send();
+}
