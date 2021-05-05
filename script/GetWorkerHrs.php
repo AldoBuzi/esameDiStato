@@ -25,8 +25,12 @@ while($row = $result->fetch_row()) {
     $index++;
     if (date("m",strtotime($row[3]))>date("m",strtotime($row[2]))){
        if($month==date("m",strtotime($row[2]))){
-        $days=(date("t",strtotime($row[2])));
+        $days=(date("t",strtotime($row[2]))-date("d",strtotime($row[2])));
        }
+       else if($month!=date("m",strtotime($row[2]))&&$month!=date("m",strtotime($row[3]))){
+        $days=(date("t",strtotime($month)));
+       }
+
        else{
         $days=(date("d",strtotime($row[3])));
        }

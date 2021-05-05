@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 03, 2021 alle 22:11
+-- Creato il: Mag 05, 2021 alle 19:28
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 8.0.3
 
@@ -35,6 +35,28 @@ CREATE TABLE `assegnazione` (
   `NomeOperazione` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `assegnazione`
+--
+
+INSERT INTO `assegnazione` (`Nome`, `NomeOperazione`) VALUES
+('Camice protezione CAT. III, CLASSE 6', 'imbiancare'),
+('Camice protezione CAT. III, CLASSE 6', 'murature'),
+('Indumenti di protezione', 'demolizioni'),
+('Indumenti di protezione', 'murature'),
+('Indumenti di protezione', 'pavimentazioni e rivestimenti'),
+('Indumento di protezioneCamice', 'murature'),
+('Indumento di protezioneCamice', 'strutture a secco'),
+('Occhiali', 'pavimentazioni e rivestimenti'),
+('Occhiali', 'scavi'),
+('Semimaschera filtrante', 'impiantistica di condizionamento'),
+('Semimaschera filtrante 2', 'impermeabilizzazioni e isolamenti'),
+('Semimaschera filtrante 2', 'murature'),
+('Semimaschera filtrante FFP2', 'strutture a secco'),
+('semimaschera filtrante, Respirator Mask', 'imbiancare'),
+('semimaschera filtrante, Respirator Mask', 'piastrellare'),
+('Visiera SAFEGUARD', 'impermeabilizzazioni e isolamenti');
+
 -- --------------------------------------------------------
 
 --
@@ -55,7 +77,11 @@ CREATE TABLE `cantiere` (
 --
 
 INSERT INTO `cantiere` (`NumCantiere`, `Committente`, `Via`, `Architetto`, `CapoEd`) VALUES
-(1, 'Paolo Rossi', 'Via Cosa n°23 Castiglione della pescaia', 'Michele', 'Buzi');
+(1, 'Paolo Rossi', 'Via Cosa n°23 Castiglione della pescaia', 'Michele', 'Donaldo Buzi'),
+(2, 'Zakaria Korchi', 'Via lago di garda n°3, Marina', 'Daniele Viti', 'Mario Rossi'),
+(3, 'Giovanni Esposito', 'Via senese n°117, Grosseto', 'Michele Bartoletti', 'Andrea Crocchi'),
+(4, 'Ciro Magalli', '', 'Marta Simp', 'Giorgio Calandrelli'),
+(5, 'Lorenzo Gaspar', 'Via castiglionese n°67, Grosseto', 'Daniele Viti', 'Donaldo Buzi');
 
 -- --------------------------------------------------------
 
@@ -65,22 +91,31 @@ INSERT INTO `cantiere` (`NumCantiere`, `Committente`, `Via`, `Architetto`, `Capo
 
 DROP TABLE IF EXISTS `dpi`;
 CREATE TABLE `dpi` (
-  `Nome` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `indossa`
---
-
-DROP TABLE IF EXISTS `indossa`;
-CREATE TABLE `indossa` (
-  `Email` varchar(40) NOT NULL,
   `Nome` varchar(40) NOT NULL,
-  `NomeOperazione` varchar(40) NOT NULL,
-  `Prelevato` tinyint(1) NOT NULL
+  `Modello` varchar(60) NOT NULL,
+  `Produttore` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `dpi`
+--
+
+INSERT INTO `dpi` (`Nome`, `Modello`, `Produttore`) VALUES
+('Camice protezione CAT. III, CLASSE 6', 'CAM038', 'NatoapratoSrl'),
+('Indumenti di protezione', 'Cuffia ProtettivaCT', 'Cantalupo 1971 Srl'),
+('Indumento di protezioneCamice', 'GACR000260792', 'Aprile Stefanelli Srl'),
+('Occhiali', 'Lar Safe 01', 'LAR Spa'),
+('Semimaschera filtrante', '8820', 'Camerson Spa'),
+('Semimaschera filtrante 2', 'KB820', 'Dispositivi Industriali Italiani Srl'),
+('Semimaschera filtrante FFP2', '14340', 'D&C Srl'),
+('semimaschera filtrante, Respirator Mask', 'SR 9002', 'Sara BSK Srl'),
+('Visiera', 'BOB2', 'Twin Srl'),
+('Visiera fissa', '06A', 'Vesta Srl'),
+('Visiera in policarbonato', '06B', 'Vesta Srl'),
+('Visiera One', 'Scudo-comfort One', 'Complastic Srl'),
+('Visiera parafiato trasparente', 'visiera', 'Enjoy Entertainment soc.coop'),
+('Visiera SAFEGUARD', 'SAFEGUARD', 'Falcon Medical Italia Srl'),
+('Visiera, PLEXX ', '9000.111/CE ', 'Ravazzolo srl');
 
 -- --------------------------------------------------------
 
@@ -93,6 +128,21 @@ CREATE TABLE `operazione` (
   `NomeOperazione` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `operazione`
+--
+
+INSERT INTO `operazione` (`NomeOperazione`) VALUES
+('demolizioni'),
+('imbiancare'),
+('impermeabilizzazioni e isolamenti'),
+('impiantistica di condizionamento'),
+('murature'),
+('pavimentazioni e rivestimenti'),
+('piastrellare'),
+('scavi'),
+('strutture a secco');
+
 -- --------------------------------------------------------
 
 --
@@ -102,10 +152,49 @@ CREATE TABLE `operazione` (
 DROP TABLE IF EXISTS `svolge`;
 CREATE TABLE `svolge` (
   `NumCantiere` bigint(20) NOT NULL,
+  `NomeOperazione` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `svolge`
+--
+
+INSERT INTO `svolge` (`NumCantiere`, `NomeOperazione`) VALUES
+(1, 'murature'),
+(1, 'scavi'),
+(2, 'pavimentazioni e rivestimenti'),
+(3, 'piastrellare'),
+(3, 'strutture a secco'),
+(4, 'scavi'),
+(5, 'impiantistica di condizionamento');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `svolgeoperazione`
+--
+
+DROP TABLE IF EXISTS `svolgeoperazione`;
+CREATE TABLE `svolgeoperazione` (
+  `NomeDPI` varchar(40) NOT NULL,
+  `Email` varchar(60) NOT NULL,
+  `NumCantiere` bigint(20) NOT NULL,
   `NomeOperazione` varchar(40) NOT NULL,
   `DataInizio` date NOT NULL,
-  `DataFine` date NOT NULL
+  `DataFine` date NOT NULL,
+  `prelevato` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `svolgeoperazione`
+--
+
+INSERT INTO `svolgeoperazione` (`NomeDPI`, `Email`, `NumCantiere`, `NomeOperazione`, `DataInizio`, `DataFine`, `prelevato`) VALUES
+('Camice protezione CAT. III, CLASSE 6', 'aldomob00@gmail.com', 5, 'impiantistica di condizionamento', '2021-05-05', '2021-05-30', 0),
+('Semimaschera filtrante 2', 'operaio@gmail.com', 2, 'piastrellare', '2021-05-02', '2021-06-02', 0),
+('Indumento di protezioneCamice', 'operaio@gmail.com', 4, 'piastrellare', '2021-05-01', '2021-05-25', 0),
+('Indumenti di protezione', 'polo@gmail.com', 5, 'piastrellare', '2021-05-09', '2021-08-04', 0),
+('Occhiali', 'polo@gmail.com', 2, 'scavi', '2021-05-11', '2021-07-01', 0);
 
 -- --------------------------------------------------------
 
@@ -122,18 +211,17 @@ CREATE TABLE `utente` (
   `Cognome` varchar(40) DEFAULT NULL,
   `DataNasc` date DEFAULT NULL,
   `LuogoNasc` varchar(40) DEFAULT NULL,
-  `TipoUt` tinyint(1) NOT NULL,
-  `NumCantiere` bigint(20) DEFAULT NULL
+  `TipoUt` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utente`
 --
 
-INSERT INTO `utente` (`Email`, `Pass`, `CF`, `Nome`, `Cognome`, `DataNasc`, `LuogoNasc`, `TipoUt`, `NumCantiere`) VALUES
-('aldomob00@gmail.com', 'Pass123', 'BZUDLD02B02Z115U', 'Donaldo', 'Buzi', '2002-02-02', 'Grecia', 1, 1),
-('operaio@gmail.com', 'Pass1233', 'SSSFFFDDDLLL1', 'Operaio', 'Operaio', '2000-11-09', 'Italia', 0, 1),
-('polo@gmail.com', 'pass', 'POLOITIS1001', 'Gabriele', 'Rossi', '1986-05-15', 'Italia', 0, 1);
+INSERT INTO `utente` (`Email`, `Pass`, `CF`, `Nome`, `Cognome`, `DataNasc`, `LuogoNasc`, `TipoUt`) VALUES
+('aldomob00@gmail.com', 'Pass123', 'BZUDLD02B02Z115U', 'Donaldo', 'Buzi', '2002-02-02', 'Grecia', 1),
+('operaio@gmail.com', 'Pass1233', 'SSSFFFDDDLLL1', 'Operaio', 'Operaio', '2000-11-09', 'Italia', 0),
+('polo@gmail.com', 'pass', 'POLOITIS1001', 'Gabriele', 'Rossi', '1986-05-15', 'Italia', 0);
 
 --
 -- Indici per le tabelle scaricate
@@ -159,14 +247,6 @@ ALTER TABLE `dpi`
   ADD PRIMARY KEY (`Nome`);
 
 --
--- Indici per le tabelle `indossa`
---
-ALTER TABLE `indossa`
-  ADD PRIMARY KEY (`Email`,`Nome`,`NomeOperazione`),
-  ADD KEY `Nome` (`Nome`),
-  ADD KEY `NomeOperazione` (`NomeOperazione`);
-
---
 -- Indici per le tabelle `operazione`
 --
 ALTER TABLE `operazione`
@@ -180,11 +260,19 @@ ALTER TABLE `svolge`
   ADD KEY `NomeOperazione` (`NomeOperazione`);
 
 --
+-- Indici per le tabelle `svolgeoperazione`
+--
+ALTER TABLE `svolgeoperazione`
+  ADD PRIMARY KEY (`Email`,`NomeOperazione`,`NumCantiere`,`NomeDPI`),
+  ADD KEY `NomeOperazione` (`NomeOperazione`),
+  ADD KEY `NumCantiere` (`NumCantiere`),
+  ADD KEY `NomeDPI` (`NomeDPI`);
+
+--
 -- Indici per le tabelle `utente`
 --
 ALTER TABLE `utente`
-  ADD PRIMARY KEY (`Email`),
-  ADD KEY `NumCantiere` (`NumCantiere`);
+  ADD PRIMARY KEY (`Email`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -194,7 +282,7 @@ ALTER TABLE `utente`
 -- AUTO_INCREMENT per la tabella `cantiere`
 --
 ALTER TABLE `cantiere`
-  MODIFY `NumCantiere` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NumCantiere` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Limiti per le tabelle scaricate
@@ -208,14 +296,6 @@ ALTER TABLE `assegnazione`
   ADD CONSTRAINT `assegnazione_ibfk_2` FOREIGN KEY (`NomeOperazione`) REFERENCES `operazione` (`NomeOperazione`);
 
 --
--- Limiti per la tabella `indossa`
---
-ALTER TABLE `indossa`
-  ADD CONSTRAINT `indossa_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `utente` (`Email`),
-  ADD CONSTRAINT `indossa_ibfk_2` FOREIGN KEY (`Nome`) REFERENCES `assegnazione` (`Nome`),
-  ADD CONSTRAINT `indossa_ibfk_3` FOREIGN KEY (`NomeOperazione`) REFERENCES `assegnazione` (`NomeOperazione`);
-
---
 -- Limiti per la tabella `svolge`
 --
 ALTER TABLE `svolge`
@@ -223,10 +303,13 @@ ALTER TABLE `svolge`
   ADD CONSTRAINT `svolge_ibfk_2` FOREIGN KEY (`NomeOperazione`) REFERENCES `operazione` (`NomeOperazione`);
 
 --
--- Limiti per la tabella `utente`
+-- Limiti per la tabella `svolgeoperazione`
 --
-ALTER TABLE `utente`
-  ADD CONSTRAINT `utente_ibfk_1` FOREIGN KEY (`NumCantiere`) REFERENCES `cantiere` (`NumCantiere`);
+ALTER TABLE `svolgeoperazione`
+  ADD CONSTRAINT `svolgeoperazione_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `utente` (`Email`),
+  ADD CONSTRAINT `svolgeoperazione_ibfk_2` FOREIGN KEY (`NomeOperazione`) REFERENCES `svolge` (`NomeOperazione`),
+  ADD CONSTRAINT `svolgeoperazione_ibfk_3` FOREIGN KEY (`NumCantiere`) REFERENCES `svolge` (`NumCantiere`),
+  ADD CONSTRAINT `svolgeoperazione_ibfk_4` FOREIGN KEY (`NomeDPI`) REFERENCES `assegnazione` (`Nome`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
