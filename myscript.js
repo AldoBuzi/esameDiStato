@@ -90,14 +90,14 @@ function CreateOperaio(){
   xmlhttp.open("GET",url,true);
   xmlhttp.send();
 }
-function GetCantiere(){
+function GetCantiere(x){
   var xmlhttp=new XMLHttpRequest();
   xmlhttp.onloadend=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       document.getElementById("SelectCantiere").innerHTML=this.responseText;
  }
   }
-  xmlhttp.open("GET","script/GetCantiere.php",true);
+  xmlhttp.open("GET","script/GetCantiere.php?index="+x,true);
   xmlhttp.send();
 }
 function ProfileMobileManager(index){
@@ -124,5 +124,15 @@ function GetWorkerHrs(){
   }
   document.getElementById("ResultDiv").style= "display: block;";
   xmlhttp.open("GET","script/GetWorkerHrs.php?month="+document.getElementById("Month").value,true);
+  xmlhttp.send();
+}
+function SearchWorkerCount(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("accordionExample").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/workercount.php?Cantiere="+document.getElementById("SelectCantiere").value,true);
   xmlhttp.send();
 }
