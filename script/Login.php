@@ -3,10 +3,7 @@
 $email= $_GET["email"];
 $password= $_GET["password"];
 $check= $_GET["check"];
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
+include "conn_init.php";
   setcookie("sessioncook","", time()-77200);
   setcookie("AutoLog", "", time()-360000);
 $sql="SELECT email FROM Utente WHERE email='$email' and pass='$password'";

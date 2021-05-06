@@ -1,10 +1,7 @@
 <?php
+include "conn_init.php";
 $cantiere=$_GET["Cantiere"];
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
-$sql="SELECT COUNT(*) FROM svolgeoperazione WHERE NumCantiere='$cantiere'";
+$sql="SELECT COUNT(DISTINCT Email) FROM svolgeoperazione WHERE NumCantiere='$cantiere'";
 $result = mysqli_query($con,$sql);
 while($row = $result->fetch_row()) {
 echo "<div class='accordion-item'>
@@ -20,7 +17,7 @@ echo "<div class='accordion-item'>
 </div>
 </div>";
 }
-$sql="SELECT Utente.Nome, Utente.Cognome FROM svolgeoperazione INNER JOIN Utente ON svolgeoperazione.email=utente.email WHERE NumCantiere='$cantiere'";
+$sql="SELECT DISTINCT Utente.Nome, Utente.Cognome FROM svolgeoperazione INNER JOIN Utente ON svolgeoperazione.email=utente.email WHERE NumCantiere='$cantiere'";
 echo "<div class='accordion-item' >
           <h2 class='accordion-header' id='headingTwo'>
             <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo'>

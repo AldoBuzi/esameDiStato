@@ -1,10 +1,7 @@
 <?php
 session_start();
 $check =isset($_COOKIE['AutoLog'])? $_COOKIE['AutoLog']: "";
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
+include "conn_init.php";
 $sql="SELECT email,pass FROM Utente";
 $result = mysqli_query($con,$sql);
 $flag=false;

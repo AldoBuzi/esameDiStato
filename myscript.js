@@ -157,3 +157,18 @@ function GetDpiUsage(){
   xmlhttp.open("GET","script/GetDpiUsage.php?dpi="+document.getElementById("SelectDPI").value,true);
   xmlhttp.send();
 }
+function RecoverPassword(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("PasswordDiv").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/PasswordRecover.php",true);
+  xmlhttp.send();
+  //window.setTimeout(RedirectTimer(), 15000);
+
+}
+function RedirectTimer(){
+  window.location.href = "http://localhost/Elaborato/Login.html";
+}

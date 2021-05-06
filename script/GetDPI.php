@@ -1,8 +1,5 @@
 <?php
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
+include "conn_init.php";
 $sql="SELECT Nome FROM DPI";
 $result = mysqli_query($con,$sql);
   echo "<option value=''></option>";

@@ -1,9 +1,6 @@
 <?php
 $index=$_GET["index"];
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
+include "conn_init.php";
 $sql="SELECT via, NumCantiere FROM Cantiere";
 $result = mysqli_query($con,$sql);
 if($index==0){

@@ -1,9 +1,6 @@
 <?php
 $dpi= $_GET["dpi"];
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
+include "conn_init.php";
 echo"<thead>
               <tr>
                 <th scope='col-1'>#</th>

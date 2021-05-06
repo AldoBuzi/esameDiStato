@@ -9,10 +9,7 @@ foreach($allid as $key){
     }
 }
 if($flag){
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
+  include "conn_init.php";
 $sql="INSERT INTO Utente VALUES(";
 foreach($AllValues as $key=>$value){
   $sql=$sql."'".$value."',";
