@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 05, 2021 alle 19:28
+-- Creato il: Mag 06, 2021 alle 14:46
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 8.0.3
 
@@ -80,7 +80,7 @@ INSERT INTO `cantiere` (`NumCantiere`, `Committente`, `Via`, `Architetto`, `Capo
 (1, 'Paolo Rossi', 'Via Cosa n°23 Castiglione della pescaia', 'Michele', 'Donaldo Buzi'),
 (2, 'Zakaria Korchi', 'Via lago di garda n°3, Marina', 'Daniele Viti', 'Mario Rossi'),
 (3, 'Giovanni Esposito', 'Via senese n°117, Grosseto', 'Michele Bartoletti', 'Andrea Crocchi'),
-(4, 'Ciro Magalli', '', 'Marta Simp', 'Giorgio Calandrelli'),
+(4, 'Ciro Magalli', 'Via Reggiano n°123, Grosseto', 'Marta Simp', 'Giorgio Calandrelli'),
 (5, 'Lorenzo Gaspar', 'Via castiglionese n°67, Grosseto', 'Daniele Viti', 'Donaldo Buzi');
 
 -- --------------------------------------------------------
