@@ -1,36 +1,33 @@
 <?php
 include "conn_init.php";
-require_once "Mail.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require_once "vendor/autoload.php";
-$from = 'buziofficial00001@gmail.com'; //change this to your email address
-$to = 'aldomob00@gmail.com'; // change to address
-$subject = 'Insert subject here'; // subject of mail
-$body = "Hello world! this is the content of the email"; //content of mail
-
-$headers = array(
-    'From' => $from,
-    'To' => $to,
-    'Subject' => $subject
-);
-
-$smtp = Mail::factory('smtp', array(
-        'host' => 'ssl://smtp.gmail.com',
-        'port' => '465',
-        'auth' => true,
-        'username' => 'buziofficial00001@gmail.com', //your gmail account
-        'password' => 'AnilaITI3@' // your password
-    ));
-
-// Send the mail
-$mail = $smtp->send($to, $headers, $body);
-
-//check mail sent or not
-if (PEAR::isError($mail)) {
-    echo '<p>'.$mail->getMessage().'</p>';
-} else {
-    echo '<p>Message successfully sent!</p>';
+require '../PHPMailer-master/src/Exception.php';
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/SMTP.php';
+$mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->Mailer = "smtp";
+$mail->SMTPDebug  = 1;  
+$mail->SMTPAuth   = TRUE;
+$mail->SMTPSecure = "tls";
+$mail->Port       = 587;
+$mail->Host       = "smtp.gmail.com";
+$mail->Username   = "buziofficial00001@gmail.com";
+$mail->Password   = "AnilaITI3";
+$mail->IsHTML(true);
+$mail->AddAddress("aldomob00@gmail.com", "Cliente");
+$mail->SetFrom("buziofficial00001@gmail.com", "Cantiere Buzi");
+$mail->AddReplyTo("buziofficial00001@gmail.com", "Cantiere Buzi");
+$mail->AddCC("buziofficial00001@gmail.com", "Cantiere Buzi");
+$mail->Subject = "Recupero Password Cantiere Buzi";
+$content = "<b>Questa è la password</b>";
+$mail->MsgHTML($content); 
+$mail->SMTPDebug = 0;
+if(!$mail->Send()){
+    echo "errore";
+}
+else{
+    echo "email inviata";
 }
 ?>
