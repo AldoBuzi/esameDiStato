@@ -136,3 +136,24 @@ function SearchWorkerCount(){
   xmlhttp.open("GET","script/workercount.php?Cantiere="+document.getElementById("SelectCantiere").value,true);
   xmlhttp.send();
 }
+function GetDPI(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("SelectDPI").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/GetDPI.php",true);
+  xmlhttp.send();
+}
+function GetDpiUsage(){
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("ResultTable").innerHTML=this.responseText;
+ }
+  }
+  document.getElementById("ResultDiv").style= "display: block;";
+  xmlhttp.open("GET","script/GetDpiUsage.php?dpi="+document.getElementById("SelectDPI").value,true);
+  xmlhttp.send();
+}
