@@ -10,12 +10,35 @@
       <main class="flex-grow-1">
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Cantiere Buzi Donaldo</a>
+          <a class="navbar-brand" href="index.html">Cantiere Buzi Donaldo</a>
           <div  id="profile" class="btn-group dropstart">
             
           </div>
         </div>
       </nav>
+      <div class="container-sm">
+        <div class="row shadow pt-3 mt-3 mb-3 justify-content-md-center">
+          <h1 class="text-center">Tipologie di lavoro effettuate</h1>
+          <div class="col-12 col-md-6 mb-3 ">
+            <label for="exampleFormControlInput1" class="form-label">Codice Fiscale</label>
+            <input type="text" class="form-control" id="CF" placeholder="Luca" required>
+          </div>
+          <div class="col-12 col-md-6 mb-3 ">
+            <label for="exampleFormControlInput1" class="form-label">Inserisci Data</label>
+            <input type="date" class="form-control" id="data" placeholder="Gialli" required>
+          </div>
+  <div class="col-12 mb-3 mt-3">
+  <div class="d-grid gap-2">
+      <button class="btn btn-primary" onclick="GetWorkerType();" type="button">Ricerca</button>
+    </div>
+  </div>
+</div>
+<div id="ResultDiv" class="row shadow mt-5 py-3 px-3" style="display: none;">
+<table id="ResultTable" class="table text-center">
+  
+</table>
+</div>
+</div>
       </main>
       <footer class="border-top p-0">
         <!-- Copyright -->

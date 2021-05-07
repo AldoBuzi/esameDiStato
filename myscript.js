@@ -172,3 +172,16 @@ function RecoverPassword(){
 function RedirectTimer(){
   window.location.href = "http://localhost/Elaborato/Login.html";
 }
+function GetWorkerType(){
+  var xmlhttp=new XMLHttpRequest();
+  var cf= document.getElementById("CF").value;
+  var data= document.getElementById("data").value;
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("ResultTable").innerHTML=this.responseText;
+ }
+  }
+  document.getElementById("ResultDiv").style= "display: block;";
+  xmlhttp.open("GET","script/SearchWorkType.php?cf="+cf+"&data="+data,true);
+  xmlhttp.send();
+}
