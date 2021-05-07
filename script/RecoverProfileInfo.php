@@ -1,13 +1,10 @@
 <?php
 session_start();
+include "conn_init.php";
 $session= isset($_COOKIE["sessioncook"])?$_COOKIE["sessioncook"]:"";
 $cookie= isset($_COOKIE["AutoLog"])?$_COOKIE["AutoLog"]:"";
 //setcookie("sessioncook","", time()-360000);
 $Tipo=2;
-$con = mysqli_connect('localhost','root','','cantierebuzi');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-  }
 $sql="SELECT email, pass,nome, cognome,TipoUt FROM Utente ";
 $result = mysqli_query($con,$sql);
 while($row = $result->fetch_row()) {

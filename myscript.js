@@ -159,12 +159,13 @@ function GetDpiUsage(){
 }
 function RecoverPassword(){
   var xmlhttp=new XMLHttpRequest();
+  var email= document.getElementById("email").value;
   xmlhttp.onloadend=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       document.getElementById("PasswordDiv").innerHTML=this.responseText;
  }
   }
-  xmlhttp.open("GET","script/PasswordRecover.php",true);
+  xmlhttp.open("GET","script/PasswordRecover.php?email="+email,true);
   xmlhttp.send();
   //window.setTimeout(RedirectTimer(), 15000);
 
@@ -183,5 +184,33 @@ function GetWorkerType(){
   }
   document.getElementById("ResultDiv").style= "display: block;";
   xmlhttp.open("GET","script/SearchWorkType.php?cf="+cf+"&data="+data,true);
+  xmlhttp.send();
+}
+function GetProfile(){
+  var x= getCookie("AutoLog")=== 'undefined'?"":getCookie("AutoLog");  
+    var y= getCookie("sessioncook")=== 'undefined'?"":getCookie("sessioncook");  
+    console.log(y);
+    console.log(x);
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("items-table").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/ProfileSection.php?x="+x+"&y="+y,true);
+  xmlhttp.send();
+}
+function SetNewPassword(){
+  var x= getCookie("AutoLog")=== 'undefined'?"":getCookie("AutoLog");  
+  var y= getCookie("sessioncook")=== 'undefined'?"":getCookie("sessioncook");  
+  var opass= document.getElementById("opass").value
+  var npass=document.getElementById("npass").value
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("PasswordResult").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/SetNewPassword.php?x="+x+"&y="+y+"&npass="+npass+"&opass="+opass,true);
   xmlhttp.send();
 }
