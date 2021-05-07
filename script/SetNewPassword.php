@@ -16,7 +16,7 @@ $sql="UPDATE Utente SET Pass ='$npass' WHERE pass='$opass' and email='$email'";
     if($result){
         echo ("andato a buon fine");
         setcookie("sessioncook","", time()-77200,"/");
-  setcookie("AutoLog", "", time()-360000,"/");
+        setcookie("AutoLog", "", time()-360000,"/");
     }
     else{
         echo ("andata male");

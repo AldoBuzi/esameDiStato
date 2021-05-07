@@ -167,7 +167,10 @@ function RecoverPassword(){
   }
   xmlhttp.open("GET","script/PasswordRecover.php?email="+email,true);
   xmlhttp.send();
-  //window.setTimeout(RedirectTimer(), 15000);
+  setTimeout(function () {
+    window.location.href = "http://localhost/Elaborato/Login.html";
+  }, 10000);
+  
 
 }
 function RedirectTimer(){
@@ -213,4 +216,24 @@ function SetNewPassword(){
   }
   xmlhttp.open("GET","script/SetNewPassword.php?x="+x+"&y="+y+"&npass="+npass+"&opass="+opass,true);
   xmlhttp.send();
+  setTimeout(function () {
+    window.location.href = "http://localhost/Elaborato/Login.html";
+  }, 10000);
+}
+function SetNewMail(){
+  var x= getCookie("AutoLog")=== 'undefined'?"":getCookie("AutoLog");  
+  var y= getCookie("sessioncook")=== 'undefined'?"":getCookie("sessioncook");  
+  var epass= document.getElementById("epass").value
+  var nmail=document.getElementById("nmail").value
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("MailResult").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/SetNewMail.php?x="+x+"&y="+y+"&nmail="+nmail+"&epass="+epass,true);
+  xmlhttp.send();
+  //setTimeout(function () {
+  //  window.location.href = "http://localhost/Elaborato/Login.html";
+  //}, 10000);
 }

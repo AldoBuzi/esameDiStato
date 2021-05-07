@@ -41,14 +41,20 @@ while($row = $result->fetch_row()) {
         <div class='tab-pane fade' id='v-pills-profile' role='tabpanel' aria-labelledby='v-pills-profile-tab'>
         <div class='row text-center'>
         <div class='col-12 mb-3 text-center'>
-            <label for='exampleFormControlInput1' class='form-label'>Inserisci Email</label>
-            <input type='email' class='form-control' id='cemail' placeholder='name@example.com' required>
+            <label for='exampleFormControlInput1' class='form-label'>Inserisci Nuova Email</label>
+            <input type='email' class='form-control' id='nmail' placeholder='name@example.com' required>
           </div>
+          <div class='col-12 mb-3 text-center'>
+          <label for='exampleFormControlInput1' class='form-label'>Inserisci Password di conferma</label>
+          <input type='password' class='form-control' id='epass' required>
+        </div>
   <div class='col-12 mb-3 mt-3'>
   <div class='d-grid gap-2'>
-      <button class='btn btn-primary' onclick='GetWorkerType();' type='button'>Ricerca</button>
+      <button class='btn btn-primary' onclick='SetNewMail();' type='button'>Cambia Mail</button>
     </div>
   </div>
+  <div id='MailResult' class='col-12 col-md-9 d-flex justify-content-center mt-5 px-0' >
+              </div>
         </div>
         </div>
         <div class='tab-pane fade' id='v-pills-messages' role='tabpanel' aria-labelledby='v-pills-messages-tab'>
@@ -63,7 +69,7 @@ while($row = $result->fetch_row()) {
         </div>
   <div class='col-12 mb-3 mt-3'>
   <div class='d-grid gap-2'>
-      <button class='btn btn-primary' onclick='SetNewPassword();' type='button'>Ricerca</button>
+      <button class='btn btn-primary' onclick='SetNewPassword();' type='button'>Crea Nuova Password</button>
     </div>
   </div>
   <div id='PasswordResult' class='col-12 col-md-9 d-flex justify-content-center mt-5 px-0' >
@@ -76,6 +82,7 @@ while($row = $result->fetch_row()) {
             <label for='exampleFormControlInput1' class='form-label'>Inserisci Email</label>
             <input type='email' class='form-control' id='cemail' placeholder='' required>
           </div>
+          
   <div class='col-12 mb-3 mt-3'>
   <div class='d-grid gap-2'>
       <button class='btn btn-primary' onclick='GetWorkerType();' type='button'>Ricerca</button>
