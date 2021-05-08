@@ -21,7 +21,7 @@ $mail->AddCC("buziofficial00001@gmail.com", "Conferma Nuovo Indirizzo Mail");
     $mail->Subject = "Conferma Nuovo Indirizzo Mail Cantiere Buzi";
     $content = "In merito la richiesta per l'utilizzo del nuovo indirizzo mail, la preghiamo di premere il link per confermare il cambiamento. <br>"."
      Link:
-     <b> http://localhost/Elaborato/emailedit.php?token=$token&mail=$nmail</b>";  
+     <b> http://localhost/Elaborato/script/emailedit.php?token=$token&mail=$nmail</b>";  
 $mail->MsgHTML($content); 
 $mail->SMTPDebug = 0;
 if(!$mail->Send()){
