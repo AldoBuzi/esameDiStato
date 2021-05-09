@@ -81,14 +81,16 @@ while($row = $result->fetch_row()) {
         <div class='row text-center'>
         <div class='col-12 mb-3 text-center'>
             <label for='exampleFormControlInput1' class='form-label'>Inserisci Email</label>
-            <input type='email' class='form-control' id='cemail' placeholder='' required>
+            <input type='email' class='form-control' id='memail' placeholder='' required>
           </div>
           
   <div class='col-12 mb-3 mt-3'>
   <div class='d-grid gap-2'>
-      <button class='btn btn-primary' onclick='GetWorkerType();' type='button'>Ricerca</button>
+      <button class='btn btn-primary' onclick='DownloadData();' type='button'>Invia Mail</button>
     </div>
   </div>
+  <div id='DataResult' class='col-12 col-md-9 d-flex justify-content-center mt-5 px-0' >
+              </div>
         </div>
         </div>
         </div>";

@@ -239,3 +239,16 @@ function SetNewMail(){
   //  window.location.href = "http://localhost/Elaborato/Login.html";
   //}, 10000);
 }
+function DownloadData(){
+  var xmlhttp=new XMLHttpRequest();
+  var memail= document.getElementById("memail").value;
+  var x= getCookie("AutoLog")=== 'undefined'?"":getCookie("AutoLog");  
+  var y= getCookie("sessioncook")=== 'undefined'?"":getCookie("sessioncook");  
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("DataResult").innerHTML=this.responseText;
+ }
+  }
+  xmlhttp.open("GET","script/downloadData.php?memail="+memail+"&x="+x+"&y="+y,true);
+  xmlhttp.send();
+}
