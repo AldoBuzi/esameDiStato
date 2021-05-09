@@ -200,6 +200,8 @@ function GetProfile(){
       document.getElementById("items-table").innerHTML=this.responseText;
  }
   }
+  var s=getCookie("name");
+  document.getElementById("title").innerHTML=s.replace("+"," ");
   xmlhttp.open("GET","script/ProfileSection.php?x="+x+"&y="+y,true);
   xmlhttp.send();
 }

@@ -6,6 +6,7 @@ $sql='SELECT email,nome, cognome, CF, DataNasc, LuogoNasc, TipoUt, Pass FROM Ute
 $result = mysqli_query($con,$sql);
 while($row = $result->fetch_row()) {
     if(md5($row[0].$row[7])==$autolog||md5($row[7].$row[0].$row[7]."aaa")==$ses){
+      setcookie("name",$row[1]." ".$row[2],0,"/");
         echo "<div class='tab-content' id='v-pills-tabContent'>
         <div class='tab-pane fade show active' id='v-pills-home' role='tabpanel' aria-labelledby='v-pills-home-tab'>
           <div class='row text-center'>
@@ -60,7 +61,7 @@ while($row = $result->fetch_row()) {
         <div class='tab-pane fade' id='v-pills-messages' role='tabpanel' aria-labelledby='v-pills-messages-tab'>
         <div class='row text-center'>
         <div class='col-12 mb-3 text-center'>
-            <label for='exampleFormControlInput1' class='form-label'>Inserisci Password precdente</label>
+            <label for='exampleFormControlInput1' class='form-label'>Inserisci Password precedente</label>
             <input type='password' class='form-control' id='opass'  required>
           </div>
           <div class='col-12 mb-3 text-center'>
