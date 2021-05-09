@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 06, 2021 alle 14:46
+-- Creato il: Mag 09, 2021 alle 21:52
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 8.0.3
 
@@ -180,8 +180,8 @@ CREATE TABLE `svolgeoperazione` (
   `Email` varchar(60) NOT NULL,
   `NumCantiere` bigint(20) NOT NULL,
   `NomeOperazione` varchar(40) NOT NULL,
-  `DataInizio` date NOT NULL,
-  `DataFine` date NOT NULL,
+  `Durata` int(11) NOT NULL,
+  `Data` date NOT NULL,
   `prelevato` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -189,12 +189,14 @@ CREATE TABLE `svolgeoperazione` (
 -- Dump dei dati per la tabella `svolgeoperazione`
 --
 
-INSERT INTO `svolgeoperazione` (`NomeDPI`, `Email`, `NumCantiere`, `NomeOperazione`, `DataInizio`, `DataFine`, `prelevato`) VALUES
-('Camice protezione CAT. III, CLASSE 6', 'aldomob00@gmail.com', 5, 'impiantistica di condizionamento', '2021-05-05', '2021-05-30', 0),
-('Semimaschera filtrante 2', 'operaio@gmail.com', 2, 'piastrellare', '2021-05-02', '2021-06-02', 0),
-('Indumento di protezioneCamice', 'operaio@gmail.com', 4, 'piastrellare', '2021-05-01', '2021-05-25', 0),
-('Indumenti di protezione', 'polo@gmail.com', 5, 'piastrellare', '2021-05-09', '2021-08-04', 0),
-('Occhiali', 'polo@gmail.com', 2, 'scavi', '2021-05-11', '2021-07-01', 0);
+INSERT INTO `svolgeoperazione` (`NomeDPI`, `Email`, `NumCantiere`, `NomeOperazione`, `Durata`, `Data`, `prelevato`) VALUES
+('Camice protezione CAT. III, CLASSE 6', 'donaldobuzi77@gmail.com', 5, 'impiantistica di condizionamento', 4, '2021-05-10', 0),
+('Occhiali', 'donaldobuzi77@gmail.com', 5, 'impiantistica di condizionamento', 3, '2021-05-13', 0),
+('Indumenti di protezione', 'donaldobuzi77@gmail.com', 2, 'pavimentazioni e rivestimenti', 8, '2021-05-13', 0),
+('Indumento di protezioneCamice', 'operaio@gmail.com', 4, 'impiantistica di condizionamento', 1, '2021-05-16', 0),
+('Camice protezione CAT. III, CLASSE 6', 'operaio@gmail.com', 2, 'piastrellare', 7, '2021-06-02', 0),
+('Indumenti di protezione', 'polo@gmail.com', 5, 'piastrellare', 2, '2021-08-04', 0),
+('Occhiali', 'polo@gmail.com', 2, 'scavi', 3, '2021-07-01', 0);
 
 -- --------------------------------------------------------
 
@@ -219,7 +221,7 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`Email`, `Pass`, `CF`, `Nome`, `Cognome`, `DataNasc`, `LuogoNasc`, `TipoUt`) VALUES
-('aldomob00@gmail.com', 'Pass123', 'BZUDLD02B02Z115U', 'Donaldo', 'Buzi', '2002-02-02', 'Grecia', 1),
+('donaldobuzi77@gmail.com', 'Password', 'BZUDLD02B02Z115U', 'Donaldo', 'Buzi', '2002-02-02', 'Grecia', 1),
 ('operaio@gmail.com', 'Pass1233', 'SSSFFFDDDLLL1', 'Operaio', 'Operaio', '2000-11-09', 'Italia', 0),
 ('polo@gmail.com', 'pass', 'POLOITIS1001', 'Gabriele', 'Rossi', '1986-05-15', 'Italia', 0);
 
@@ -263,7 +265,7 @@ ALTER TABLE `svolge`
 -- Indici per le tabelle `svolgeoperazione`
 --
 ALTER TABLE `svolgeoperazione`
-  ADD PRIMARY KEY (`Email`,`NomeOperazione`,`NumCantiere`,`NomeDPI`),
+  ADD PRIMARY KEY (`Email`,`NomeOperazione`,`NumCantiere`,`NomeDPI`,`Data`),
   ADD KEY `NomeOperazione` (`NomeOperazione`),
   ADD KEY `NumCantiere` (`NumCantiere`),
   ADD KEY `NomeDPI` (`NomeDPI`);
@@ -306,7 +308,7 @@ ALTER TABLE `svolge`
 -- Limiti per la tabella `svolgeoperazione`
 --
 ALTER TABLE `svolgeoperazione`
-  ADD CONSTRAINT `svolgeoperazione_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `utente` (`Email`),
+  ADD CONSTRAINT `svolgeoperazione_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `utente` (`Email`) ON UPDATE CASCADE,
   ADD CONSTRAINT `svolgeoperazione_ibfk_2` FOREIGN KEY (`NomeOperazione`) REFERENCES `svolge` (`NomeOperazione`),
   ADD CONSTRAINT `svolgeoperazione_ibfk_3` FOREIGN KEY (`NumCantiere`) REFERENCES `svolge` (`NumCantiere`),
   ADD CONSTRAINT `svolgeoperazione_ibfk_4` FOREIGN KEY (`NomeDPI`) REFERENCES `assegnazione` (`Nome`);
