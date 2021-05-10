@@ -9,7 +9,7 @@ echo"<thead>
               </tr>
             </thead>
             <tbody>";
-$sql="SELECT DISTINCT Utente.Nome, Utente.Cognome FROM Utente INNER JOIN svolgeoperazione ON Utente.email=svolgeoperazione.email WHERE svolgeoperazione.NomeDPI='$dpi'";
+$sql="SELECT DISTINCT Utente.Nome, Utente.Cognome FROM Utente INNER JOIN svolgeoperazione ON Utente.email=svolgeoperazione.email INNER JOIN assegnazione ON svolgeoperazione.NomeOperazione= assegnazione.NomeOperazione WHERE assegnazione.Nome='$dpi'";
 $result = mysqli_query($con,$sql);
 $index=1;
 while($row = $result->fetch_row()) {

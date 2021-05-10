@@ -44,7 +44,8 @@ while($row = $result->fetch_row()) {
    }
 $GetName = mysqli_query($con, "SELECT * FROM Utente WHERE email='$eemail'");
 $GetTime=mysqli_query($con, "SELECT MIN(Data), MAX(Data), SUM(Durata) FROM SvolgeOperazione WHERE email='$eemail'  GROUP BY email ORDER BY Data");
-$GetTable=mysqli_query($con, "SELECT DISTINCT NomeDpi, NomeOperazione FROM SvolgeOperazione WHERE email='$eemail'");
+$GetType=mysqli_query($con, "SELECT DISTINCT NomeOperazione FROM SvolgeOperazione WHERE email='$eemail'");
+$GetDPI=mysqli_query($con, "SELECT DISTINCT Nome FROM assegnazione WHERE NomeOperazione IN (SELECT DISTINCT NomeOperazione FROM SvolgeOperazione WHERE email='$eemail')");
 //$header = mysqli_query($conn, "SHOW columns FROM employee");
 $pdf = new PDF();
 //header
@@ -75,13 +76,20 @@ foreach($display_heading as $header) {
     $pdf->Cell($s,12,$header,1,0,"C");
     $index++;
     }
+$data=  array();
+$data2=  array();
+while($row = $GetType->fetch_row()) {
+    $data[]=$row[0];
+}
+while($row1= $GetDPI->fetch_row()) {
+    $data2[]=$row1[0];
+}
 $index=1;
-while($row = $GetTable->fetch_row()) {
+for($i=0;$i<max(count($data),count($data2));$i++){
     $pdf->Ln();
     $pdf->Cell(20,12,$index,1,0,"C");
-    $pdf->Cell(83,12,$row[0],1,0,"C");
-    $pdf->Cell(83,12,$row[1],1,0,"C");
-    $index++;
+    $index++;    !empty($data2[$i])? $pdf->Cell(83,12,$data2[$i],1,0,"C"):$pdf->Cell(83,12,"",1,0,"C") ;
+    !empty($data[$i])?$pdf->Cell(83,12,$data[$i],1,0,"C"):$pdf->Cell(83,12,"",1,0,"C");
 }
 $mail->AddAddress($mmail, "Ciao ");
 $pdfdoc = $pdf->Output('', 'S');
