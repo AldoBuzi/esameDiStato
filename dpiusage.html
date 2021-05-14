@@ -8,13 +8,14 @@
 </head>
 <body class="d-flex flex-column h-100">
       <main class="flex-grow-1">
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Cantiere Buzi Donaldo</a>
-          <div  id="profile" class="btn-group dropstart">
+        <nav id="navbar" class="navbar navbar-light" style="background-color: rgba(30, 67, 86)" >
+          <div class="container-fluid">
+            <a class="navbar-brand" style="color: white;" href="index.html">Cantiere Buzi Donaldo</a>
+            <div  id="profile" class="btn-group dropstart">
+              
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>  
       <div class="container">
         <div class="row shadow pt-3 mt-3 mb-3 justify-content-md-center">
             <h1 class="text-center">Lavoratori che hanno usato un certo DPI</h1>
@@ -46,6 +47,20 @@
         </div>
         <!-- Copyright -->
       </footer>
+      <script>
+        var prevScrollpos = window.pageYOffset;
+        
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        console.log(prevScrollpos, currentScrollPos);
+          if (prevScrollpos >= currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+          } else {
+            document.getElementById("navbar").style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
       <script>     window.onload = function(){CheckLogin(); GetProfileInfo(); GetDPI();};          </script>
 

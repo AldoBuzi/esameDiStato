@@ -12,7 +12,7 @@
     <body class="d-flex flex-column h-100">
         <nav id="navbar" class="navbar navbar-light" style="background-color: rgba(30, 67, 86)" >
             <div class="container-fluid">
-              <a class="navbar-brand" style="color: white;" href="#">Cantiere Buzi Donaldo</a>
+              <a class="navbar-brand" style="color: white;" href="index.html">Cantiere Buzi Donaldo</a>
               <div  id="profile" class="btn-group dropstart">
                 
               </div>
@@ -25,10 +25,10 @@
                   <div class="col-12 col-md-6 my-3 ms-0 me-0">
                     <img id="zoom" src="img/2.jpg" class="img-responsive h-auto" style="width:100%; margin: 0 auto; " alt="...">
                   </div>
-                  <div class="col-12 col-md-5 ms-2 me-3">
+                  <div class="col-12 col-md-5 ms-2 mt-3 me-3">
                     <div class="card-body">
-                      <h5 class="card-title">Calendario Ore Lavorate</h5>
-                      <p class="card-text">Qua è possibile visualizzare il totale delle ore lavorate da ogni operaio in un determinato mese.</p>
+                      <h3 class="card-title"><strong>Ore Lavorate</strong></h3>
+                      <p class="fs-5">Qua è possibile visualizzare il totale delle ore lavorate da ogni operaio in un determinato mese.</p>
                       <a href="workerhours.html" class="btn btn-primary">Vai</a>
                     </div>
                   </div>
@@ -40,10 +40,10 @@
             <div class="row justify-content-center">
             <div id="containermob" class="fade my-5 mx-2 shadow-lg" onmouseover="OnOver(this)" onmouseout="OnExit(this)" >
                 <div class="row">
-                 <div class="col-12 col-md-5 ms-3 me-5">
+                 <div class="col-12 col-md-5 ms-3 me-5 mt-3">
                     <div class="card-body">
-                      <h5 class="card-title">Lavori effettuati da un operaio</h5>
-                      <p class="card-text">Qua è possibile visualizzare, dato un codice fiscale di un operaio le tipologie di lavoro effettuati e per quante ore in un dato giorno.</p>
+                      <h3 class="card-title"><strong>Lavori effettuati da un operaio</strong></h3>
+                      <p class="fs-5">Qua è possibile visualizzare, dato un codice fiscale di un operaio le tipologie di lavoro effettuati e per quante ore in un dato giorno.</p>
                       <a href="worktype.html" class="btn btn-primary" >Vai</a>
                     </div>
                   </div>
@@ -61,10 +61,10 @@
                   <div class=" col-12 col-md-6 my-3 ms-0 me-0">
                     <img id="zoom" src="img/5.jpg" class="img-responsive h-auto" style="width:100%; margin: 0 auto; " alt="...">
                   </div>
-                  <div class="col-12 col-md-5">
+                  <div class="col-12 col-md-5 mt-3">
                     <div class="card-body">
-                      <h5 class="card-title">DPI utilizzati</h5>
-                      <p class="card-text">Qua è possibile visualizzare l'elenco degli che hanno utilizzato un certo DPI.</p>
+                      <h3 class="card-title"><strong>DPI utilizzati</strong></h3>
+                      <p class="fs-5">Qua è possibile visualizzare l'elenco degli che hanno utilizzato un certo DPI.</p>
                       <a href="dpiusage.html" class="btn btn-primary" >Vai</a>
                     </div>
                   </div>
@@ -76,15 +76,14 @@
             <div class="row justify-content-center">
             <div id="containermob" class="fade my-5 mx-2 shadow-lg" onmouseover="OnOver(this)" onmouseout="OnExit(this)" >
                 <div class="row">
-                  <div class="col-12 col-md-5  ms-3 me-5">
+                  <div class="col-12 col-md-5  ms-3 me-5 mt-3">
                     <div class="card-body">
-                      <h5 class="card-title">Operati adoperati in un cantiere</h5>
-                      <p class="card-text">Qua è possibile visualizzare il numero di operai che hanno lavorato ad un certo cantiere.</p>
+                      <h3 class="card-title"><strong>Operati adoperati in un cantiere</strong></h3>
+                      <p class="fs-5">Qua è possibile visualizzare il numero di operai che hanno lavorato ad un certo cantiere.</p>
                       <a href="workercount.html" class="btn btn-primary" >Vai</a>
                     </div>
                   </div>
                   <div class=" col-12 col-md-6 my-3 ms-0 me-0">
-                    <img id="zoom" src="img/1.jpg" class="img-responsive h-auto" style="width:100%; margin: 0 auto; " alt="...">
                     <img id="zoom" src="img/1.jpg" class="img-responsive h-auto" style="width:100%; margin: 0 auto; " alt="...">
                   </div>
                 </div>
@@ -99,9 +98,13 @@
             $(".fade").each(function() {
               /* Check the location of each desired element */
               var objectBottom = $(this).offset().top + $(this).outerHeight();
-              
+              let isMobile = window.matchMedia("only screen and (max-width: 720px)").matches;
+              var device= 200;
+              if (isMobile) {
+                device=387;
+              }
               /* If the element is completely within bounds of the window, fade it in */
-              if (objectBottom-100 < windowBottom) { //object comes into view (scrolling down)
+              if (objectBottom-device < windowBottom) { //object comes into view (scrolling down)
                 if ($(this).css("opacity")==0) {$(this).fadeTo(0.1,1);}
               } else { //object goes out of view (scrolling up)
                 if ($(this).css("opacity")==1) {$(this).fadeTo(0.1,0);}
