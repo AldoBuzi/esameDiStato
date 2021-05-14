@@ -6,7 +6,7 @@ $check= $_GET["check"];
 include "conn_init.php";
   setcookie("sessioncook","", time()-77200,"/");
   setcookie("AutoLog", "", time()-360000,"/");
-$sql="SELECT email FROM Utente WHERE email='$email' and pass='$password'";
+$sql="SELECT email FROM Utente WHERE email='$email' and pass LIKE '$password'";
 $result = mysqli_query($con,$sql);
 if($result->num_rows > 0) {
     echo("true");
