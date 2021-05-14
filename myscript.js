@@ -252,3 +252,17 @@ function DownloadData(){
   xmlhttp.open("GET","script/downloadData.php?memail="+memail+"&x="+x+"&y="+y,true);
   xmlhttp.send();
 }
+function OnOver(x){
+
+  var mouseTarget= elementMouseIsOver =x;
+  mouseTarget.className+="border border-3 border-primary";
+}
+function OnExit(x){
+  var mouseTarget= elementMouseIsOver =x;
+  if(x.id!="dont-fade"){
+    mouseTarget.className="fade my-5 mx-2 shadow-lg ";
+  }
+  else {
+    mouseTarget.className="my-5 mx-2 shadow-lg ";
+  }
+}

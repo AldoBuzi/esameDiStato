@@ -1,0 +1,74 @@
+<html style="height:100%;">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1 maximum-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="mystyle.css">
+        <script src="myscript.js"></script>
+    </head>
+    <body class="d-flex flex-column h-100">
+      <main class="flex-grow-1">
+        <nav class="navbar navbar-light" style="background-color: rgb(226, 226, 226);">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Cantiere Buzi Donaldo</a>
+              <div  id="profile" class="btn-group dropstart">
+                
+              </div>
+            </div>
+          </nav>
+          <div id="container" class="row justify-content-center mx-0 px-0 response">
+            <div class="col-12 col-md-6 mt-2 mx-0 px-0">
+              <div  class="card text-center py-2" style="background-color: rgb(125, 171, 255);" >
+                <img id="toresize" class="img-responsive h-auto" style="margin: 0 auto; " src="img/calendar.png" alt="Card image">
+                <div class="card-img-overlay">
+                  <h3 class="card-title text-white"><strong>Calendario Ore Lavorate</strong></h3>
+                  <p class="card-text text-white">Qua è possibile visualizzare il totale delle ore lavorate da ogni operaio in un determinato mese.</p>
+                  <a href="workerhours.html" class="btn btn-primary">Vai</a>
+                </div>
+              </div>
+              </div>
+              <div class="col-12 col-md-6  mt-0 mt-md-2 mx-0 px-0">
+                <div class="card text-center py-2" style="background-color: rgb(209, 199, 199);" >
+                  <img id="toresize" class="img-responsive h-auto" style="margin: 0 auto; "  src="img/work.png" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title text-white"><strong>Lavori effettuati da un operaio</strong></h4>
+                    <p class="card-text text-white">Qua è possibile visualizzare, dato un codice fiscale di un operaio le tipologie di lavoro effettuati e per quante ore in un dato giorno.</p>
+                    <a href="worktype.html" class="btn" style="background-color: rgb(170, 170, 170);">Vai</a>
+                  </div>
+                </div>
+                </div>
+                <div class="col-12 col-md-6 mt-0 mx-0 px-0">
+                  <div class="card text-center py-2" style="background-color: rgb(255, 223, 118);" >
+                    <img id="toresize" class="img-responsive h-auto" style="margin: 0 auto; "  src="img/DPI.png" alt="Card image">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-white"><strong>DPI utilizzati</strong></h4>
+                      <p class="card-text text-white">Qua è possibile visualizzare l'elenco degli che hanno utilizzato un certo DPI.</p>
+                      <a href="dpiusage.html" class="btn" style="background-color: rgb(200, 202, 47);">Vai</a>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-12 col-md-6 mt-0 mx-0 px-0">
+                    <div class="card text-center py-2" style="background-color: rgb(114, 184, 97);" >
+                      <img class="img-responsive h-auto" style="padding-top:150px ; margin: 0 auto; width: 400px;" src="img/people.png" alt="Card image">
+                      <div class="card-img-overlay">
+                        <h4 class="card-title text-white"><strong>Operati adoperati in un cantiere</strong></h4>
+                        <p class="card-text text-white">Qua è possibile visualizzare il numero di operai che hanno lavorato ad un certo cantiere.</p>
+                        <a href="workercount.html" class="btn" style="background-color: rgb(73, 161, 73);">Vai</a>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </main>
+                  <footer class="border-top p-0">
+                    <!-- Copyright -->
+                    <div class="sticky-bottom text-center p-3" style="background-color: rgb(226, 226, 226);">
+                      © 2021 Copyright:
+                      <a class="text-dark" href="https://mdbootstrap.com/">esamebuzi.com</a>
+                    </div>
+                    <!-- Copyright -->
+                  </footer>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+          <script>     window.onload = function(){ CheckLogin(); GetProfileInfo();};          </script>
+        </body>
+</html>
