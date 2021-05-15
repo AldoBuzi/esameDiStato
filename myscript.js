@@ -26,7 +26,7 @@ function Login(email, password){
 }
 function CheckResult(){
     if(document.getElementById("checkauth").value=="true"){
-        window.location.href = "http://192.168.1.250/Elaborato";
+        window.location.href = "http://192.168.242.59/Elaborato";
       }
 }
 function GetProfileInfo(){

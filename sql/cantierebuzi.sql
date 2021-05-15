@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 10, 2021 alle 20:03
+-- Creato il: Mag 15, 2021 alle 11:30
 -- Versione del server: 10.1.40-MariaDB
 -- Versione PHP: 7.3.5
 
@@ -177,7 +177,7 @@ INSERT INTO `svolge` (`NumCantiere`, `NomeOperazione`) VALUES
 
 DROP TABLE IF EXISTS `svolgeoperazione`;
 CREATE TABLE `svolgeoperazione` (
-  `Email` varchar(60) NOT NULL,
+  `Email` varchar(100) NOT NULL,
   `NumCantiere` bigint(20) NOT NULL,
   `NomeOperazione` varchar(40) NOT NULL,
   `Durata` int(11) NOT NULL,
@@ -206,7 +206,7 @@ INSERT INTO `svolgeoperazione` (`Email`, `NumCantiere`, `NomeOperazione`, `Durat
 
 DROP TABLE IF EXISTS `utente`;
 CREATE TABLE `utente` (
-  `Email` varchar(40) NOT NULL,
+  `Email` varchar(100) NOT NULL,
   `Pass` varchar(40) NOT NULL,
   `CF` varchar(16) NOT NULL,
   `Nome` varchar(40) DEFAULT NULL,
@@ -221,7 +221,9 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`Email`, `Pass`, `CF`, `Nome`, `Cognome`, `DataNasc`, `LuogoNasc`, `TipoUt`) VALUES
+('andreaferraroluigi@gmail.com', 'ssss', 'FRRNRL02S2302', 'andrealuigi', 'ferraro', '2002-11-23', 'grosseto', 0),
 ('donaldobuzi77@gmail.com', 'Password', 'BZUDLD02B02Z115U', 'Donaldo', 'Buzi', '2002-02-02', 'Grecia', 1),
+('luca.fabio@gmail.com', 'Pass', 'IUOBJWFEFWE', 'Luca', 'Fabio', '2020-02-19', 'Germania', 1),
 ('operaio@gmail.com', 'Pass1233', 'SSSFFFDDDLLL1', 'Operaio', 'Operaio', '2000-11-09', 'Italia', 0),
 ('polo@gmail.com', 'pass', 'POLOITIS1001', 'Gabriele', 'Rossi', '1986-05-15', 'Italia', 0);
 

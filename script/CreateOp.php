@@ -1,5 +1,5 @@
 <?php
-$allid = array("email","fpassword","CF","nome","cognome","nascita","luogo","SelectUtente","SelectCantiere");
+$allid = array("email","fpassword","CF","nome","cognome","nascita","luogo","SelectUtente");
 $AllValues=  array();
 $flag=true;
 foreach($allid as $key){
@@ -19,13 +19,14 @@ $sql=$sql.")";
 $result = mysqli_query($con,$sql);
 
 if($result){
- echo ' <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-<lord-icon
-    src="https://cdn.lordicon.com//tvyxmjyo.json"
-    trigger="loop"
-    colors="primary:#121331,secondary:#08a88a"
-    style="width:250px;height:250px">
-</lord-icon>';
+ echo " 
+ <script src='https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js'></script>
+ <lord-icon
+     src='https://cdn.lordicon.com//jvihlqtw.json'
+     trigger='loop'
+     colors='primary:#121331,secondary:#08a88a'
+     style='width:250px;height:250px'>
+ </lord-icon>";
 }
 else{
   echo("Errore: Dati duplicati");
