@@ -55,7 +55,7 @@ while($row = $result->fetch_row()) {
       <button class='btn btn-primary' onclick='SetNewMail();' type='button'>Cambia Mail</button>
     </div>
   </div>
-  <div id='MailResult' class='col-12 col-md-9 d-flex justify-content-center mt-5 px-0' >
+  <div id='MailResult' class='col-12 col-md-9 d-flex justify-content-center mt-0 px-0' >
               </div>
         </div>
         </div>
@@ -74,7 +74,7 @@ while($row = $result->fetch_row()) {
       <button class='btn btn-primary' onclick='SetNewPassword();' type='button'>Crea Nuova Password</button>
     </div>
   </div>
-  <div id='PasswordResult' class='col-12 col-md-9 d-flex justify-content-center mt-5 px-0' >
+  <div id='PasswordResult' class='col-12 col-md-9 d-flex justify-content-center mt-0 px-0' >
               </div>
         </div>
         </div>

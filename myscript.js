@@ -20,7 +20,7 @@ function Login(email, password){
   var xmlhttp=new XMLHttpRequest();
 xmlhttp.onloadend=function() {
   if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-    document.getElementById("checkauth").innerHTML=this.responseText== "true"? "<img class='img-responsive h-auto fixed-center' style='margin: 0 auto;'  src='img/loading.gif' >": this.responseText;
+    document.getElementById("checkauth").innerHTML=this.responseText== "true"? "<lottie-player src='icon_json/loading.json' background='transparent'  speed='1'  style='width: 250px; height: 250px; margin: 0 auto;' loop  autoplay></lottie-player>": this.responseText;
     document.getElementById("checkauth").value= this.responseText;
 }
 }
