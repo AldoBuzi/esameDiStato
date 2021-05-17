@@ -13,7 +13,7 @@ $mail->SMTPSecure = "tls";
 $mail->Port       = 587;
 $mail->Host       = "smtp.gmail.com";
 $mail->Username   = "buziofficial00001@gmail.com";
-$mail->Password   = "AnilaITI3";
+$mail->Password   = "AnilaITI3@";
 $mail->IsHTML(true);
 $mail->SetFrom("buziofficial00001@gmail.com", "Cantiere Buzi");
 $mail->AddReplyTo("buziofficial00001@gmail.com", "Cantiere Buzi");

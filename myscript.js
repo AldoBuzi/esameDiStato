@@ -1,13 +1,18 @@
 function CheckLogin(){
-  //document.cookie = "sessioncook= ; path=/; expires = Thu, 01 Jan 1970 00:00:00 GMT";
   var x= getCookie("AutoLog")=== 'undefined'?"":getCookie("AutoLog");  
   var y= getCookie("sessioncook")=== 'undefined'?"":getCookie("sessioncook");  
-//y= document.cookie;
-  console.log(y);
-  console.log(x);
-  if(x==""&&y==""){
-      window.location.href = "script/AccountManager.php";
+  var xmlhttp=new XMLHttpRequest();
+  var flag;
+  xmlhttp.onloadend=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      flag= this.responseText;
+      if(flag==0){
+        window.location.href = "script/AccountManager.php";
+    }
   }
+  }
+  xmlhttp.open("GET","script/CheckCookieVal.php?x="+x+"&y="+y,true);
+  xmlhttp.send();
   //document.cookie = "sessioncook= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 
 }

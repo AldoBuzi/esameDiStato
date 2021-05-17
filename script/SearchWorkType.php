@@ -2,6 +2,7 @@
 $cf= $_GET["cf"];
 $data= $_GET["data"];
 include "conn_init.php";
+if($flag){
 echo"<thead>
               <tr>
                 <th scope='col-1'>#</th>
@@ -21,5 +22,9 @@ while($row = $result->fetch_row()) {
     echo "</tr>";
 }
 echo "</tbody>";
+}
+else{
+  echo "errore";
+}
 mysqli_close($con);
 ?>

@@ -7,13 +7,11 @@ $sql="SELECT email, pass, nome, pass FROM Utente ";
 $ses= $_GET["y"];
 $autolog= $_GET["x"];
 $token="";
-$flag=false;
 $result = mysqli_query($con,$sql);
 while($row = $result->fetch_row()) {
- if(($ses==md5($row[1].$row[0].$row[1]."aaa")||$autolog==md5($row[0].$row[1]))&&$epass=$row[1]){
+ if($flag&&$epass=$row[1]){
      $mail->AddAddress($nmail, $row[2]." ".$row[3]);
      $token=md5($nmail.$row[0].$row[1]."ino20fn20n2ef0ne2f0n");
-     $flag=true;
 }
 }
 if($flag){
