@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cantierebuzi`
+-- Database: `dbs1989709`
 --
-CREATE DATABASE IF NOT EXISTS `cantierebuzi` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `cantierebuzi`;
+CREATE DATABASE IF NOT EXISTS `dbs1989709` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `dbs1989709`;
 
 -- --------------------------------------------------------
 
