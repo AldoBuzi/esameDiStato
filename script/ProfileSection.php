@@ -7,6 +7,7 @@ $result = mysqli_query($con,$sql);
 while($row = $result->fetch_row()) {
     if(md5($row[0].$row[7])==$autolog||md5($row[7].$row[0].$row[7]."aaa")==$ses){
       setcookie("name",$row[1]." ".$row[2],0,"/");
+      $_COOKIE["name"]= "$row[1]"." "."$row[2]";
         echo "<div class='tab-content' id='v-pills-tabContent'>
         <div class='tab-pane fade show active' id='v-pills-home' role='tabpanel' aria-labelledby='v-pills-home-tab'>
           <div class='row text-center'>
