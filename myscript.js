@@ -205,10 +205,10 @@ var xmlhttp=new XMLHttpRequest();
 xmlhttp.onloadend=function() {
   if (xmlhttp.readyState==4 && xmlhttp.status==200) {
     document.getElementById("items-table").innerHTML=this.responseText;
-}
-}
-var s=getCookie("name");
+    var s=getCookie("name");
 document.getElementById("title").innerHTML=s.replace("+"," ");
+}
+}
 xmlhttp.open("GET","script/ProfileSection.php?x="+x+"&y="+y,true);
 xmlhttp.send();
 }
