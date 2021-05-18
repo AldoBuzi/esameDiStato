@@ -33,7 +33,7 @@ if(!$mail->Send()){
 }
 else{
     echo "<div class='row'>";
-        echo "<div class='col-12 col-md-6 '><lottie-player src='icon_json/email.json' background='transparent'  speed='1'  style='width: 150px; height: 150px; margin: 0 auto;'   autoplay></lottie-player></div>";
+        echo "<div class='col-12 col-md-6 '><lottie-player src='icon_json/mail.json' background='transparent'  speed='1'  style='width: 150px; height: 150px; margin: 0 auto;'   autoplay></lottie-player></div>";
         echo ("<div class='col-12 col-md-6 mt-md-5'>Email inviata! A breve verrai reinderizzato alla pagina di login.</div></div>");
 }
 }

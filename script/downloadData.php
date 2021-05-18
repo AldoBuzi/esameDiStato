@@ -100,9 +100,13 @@ $mail->AddCC("buziofficial00001@gmail.com", "Riepilogo Dati");
 $mail->MsgHTML($content); 
 $mail->SMTPDebug = 0;
 if(!$mail->Send()){
-    echo "errore";
+    echo "<div class='row'>";
+        echo "<div class='col-12 col-md-6'><lottie-player src='icon_json/error.json' background='transparent'  speed='1'  style='width: 150px; height: 150px; margin: 0 auto;'   autoplay></lottie-player></div>";
+        echo ("<div class='col-12 col-md-6 mt-md-5'>A breve verrai reinderizzato alla pagina di login.</div></div>");
 }
 else{
-    echo "email inviata";
+    echo "<div class='row'>";
+        echo "<div class='col-12 col-md-6'><lottie-player src='icon_json/ok.json' background='transparent'  speed='1'  style='width: 150px; height: 150px; margin: 0 auto;'   autoplay></lottie-player></div>";
+        echo ("<div class='col-12 col-md-6 mt-md-5'>A breve verrai reinderizzato alla pagina di login.</div></div>");
 }
 ?>
